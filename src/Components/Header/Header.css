@@ -1,11 +1,10 @@
+/* Existing styles (preserved exactly) */
 .header_outer_container {
     position: sticky; 
     top: 0;
     display: flex;
     justify-content: center; 
     align-items: center;
-    /* background-color: rgb(148, 132, 132); */ 
-    background-color: rgb(20, 20, 20); 
     background-color: transparent; 
     height: 10vh;
     color: white;
@@ -15,30 +14,98 @@
 }   
 .nav_black{
     background-color: rgb(20, 20, 20);
-    }
+}
 .header_container {
     width: 90%; 
     display: flex;
     justify-content: space-between; 
     align-items: center;
-  /* background-color: yellow; */
 }
 .header_left ul { 
     width: 140%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    List-style: none;
+    list-style: none;
     cursor: pointer;
-    /* background-color: lightblue; */
 }
 .header_right ul { 
     width: 150%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    List-style: none;
+    list-style: none;
     cursor: pointer;
-    /* background-color: lightblue; */
 }
 
+/* New responsive additions */
+.header_left ul li,
+.header_right ul li {
+    transition: all 0.3s ease;
+}
+
+/* Mobile styles (default) */
+@media (max-width: 767px) {
+    .header_left ul {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+    .header_left ul li:not(:first-child):not(:nth-child(2)) {
+        display: none;
+    }
+    .header_right ul {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    .header_container {
+        width: 95%;
+    }
+    .header_left ul li img {
+        width: 80px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header_left ul {
+        width: 120%;
+        gap: 20px;
+    }
+    .header_left ul li:nth-child(n+7) {
+        display: none;
+    }
+    .header_right ul {
+        width: 130%;
+        gap: 20px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .header_left ul {
+        width: 140%;
+    }
+    .header_right ul {
+        width: 150%;
+    }
+}
+
+/* Hover effects */
+.header_left ul li:hover,
+.header_right ul li:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Scroll behavior */
+.header_outer_container.scrolled {
+    background-color: rgb(20, 20, 20);
+    height: 8vh;
+}
+
+/* Icon sizing */
+.header_right ul li svg {
+    font-size: 1.5rem;
+}
